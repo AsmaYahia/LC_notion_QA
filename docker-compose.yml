@@ -1,0 +1,7 @@
+services:
+  notion-qa:
+    image: notion-qa
+    ports:
+      - "8501:8501"
+
+    
