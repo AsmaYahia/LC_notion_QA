@@ -8,7 +8,6 @@ import pickle
 # import pathlib
 # temp = pathlib.PosixPath
 # pathlib.PosixPath = pathlib.WindowsPath
-OPENAI_TOKEN=""
 # Load the LangChain.
 index = faiss.read_index("docs.index")
 
@@ -16,7 +15,7 @@ with open("faiss_store.pkl", "rb") as f:
     store = pickle.load(f)
 
 store.index = index
-chain = VectorDBQAWithSourcesChain.from_llm(llm=OpenAI(temperature=0,openai_api_key= OPENAI_TOKEN), vectorstore=store)
+chain = VectorDBQAWithSourcesChain.from_llm(llm=OpenAI(temperature=0), vectorstore=store)
 
 
 # From here down is all the StreamLit UI.
